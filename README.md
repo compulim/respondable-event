@@ -49,7 +49,7 @@ The callback function passed to the constructor will be called *at most once*. S
 
 ### New `checkResponse` function
 
-The `checkResponse()` function guarantees the `callback` function must be called exactly once. This helps reduce code complexity. The API design is similar to the [`HTMLFormElement.checkValidity()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/checkValidity) function:
+To reduce code complexity, the `checkResponse()` function guarantees the `callback` function will be called exactly once. The API design is similar to the [`HTMLFormElement.checkValidity()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/checkValidity) function:
 
 - If `respondWith()` was called, `checkResponse()` will return `true`.
 - If `respondWith()` was never called, `checkResponse()` will call the `callback` function with `undefined`, and return `false`.
