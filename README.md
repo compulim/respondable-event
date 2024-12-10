@@ -1,6 +1,6 @@
 # `respondable-event`
 
-Enables event listeners to send response back to the dispatching `EventTarget`.
+Enables event listeners to send response back to the event dispatcher.
 
 ## Background
 

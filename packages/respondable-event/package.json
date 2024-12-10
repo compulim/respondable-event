@@ -1,7 +1,7 @@
 {
   "name": "respondable-event",
   "version": "0.0.0-0",
-  "description": "Enables event listeners to send zero-or-one response back to the dispatching EventTarget.",
+  "description": "Enables event listeners to send zero-or-one response back to the event dispatcher.",
   "files": [
     "./dist/"
   ],
