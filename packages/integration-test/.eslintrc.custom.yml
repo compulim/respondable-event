@@ -2,6 +2,7 @@ env:
   browser: true
 ignorePatterns:
   - '**/dist/**'
+  - 'test/webDriver/static/**'
 parser: '@typescript-eslint/parser'
 rules:
   'react/no-deprecated': off
