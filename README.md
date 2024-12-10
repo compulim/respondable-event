@@ -1,6 +1,6 @@
 # `respondable-event`
 
-Enables event listeners to send at-most-one response back to the dispatching `EventTarget`.
+Enables event listeners to send response back to the dispatching `EventTarget`.
 
 ## Background
 
@@ -27,8 +27,8 @@ const event = new RespondableEvent(
 
 element.dispatchEvent(event);
 
-// If no response has been made or pending, calling the `checkResponse()` function
-// will call the callback function with undefined.
+// If `respondWith()` is not called, `checkResponse()`
+// function will callback with undefined.
 event.checkResponse();
 
 const token = await authenticate.promise;
@@ -45,24 +45,26 @@ window.addEventListener('authenticate', event => {
 });
 ```
 
+The callback function passed to the constructor will be called at-most-once. Similar to `FetchEvent`, the `respondWith()` function will throw if it is being called for more than once.
+
 ### New `checkResponse` function
 
-The `checkResponse()` function guarantees the `callback` function must be called exactly once. This helps reduce code complexity and its design is similar to the [`HTMLFormElement.checkValidity()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/checkValidity) function:
+The `checkResponse()` function guarantees the `callback` function must be called exactly once. This helps reduce code complexity. The API design is similar to the [`HTMLFormElement.checkValidity()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/checkValidity) function:
 
-- If a prior response has been made, `checkResponse()` will return `true`.
-- If no prior response is made, `checkResponse()` will call the `callback` function with `undefined`, and return `false`.
+- If `respondWith()` was called, `checkResponse()` will return `true`.
+- If `respondWith()` was never called, `checkResponse()` will call the `callback` function with `undefined`, and return `false`.
 
-It is recommended to call `checkResponse()` after `dispatchEvent()` to guarantee the `callback` function is being called regardless `respondWith()` is called or not.
+It is recommended to call `checkResponse()` after `dispatchEvent()`.
 
 ## Designs
 
 ### Callback function in constructor
 
-The callback function follows the pattern found in [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver) and other observer classes. It is designed to limit the audience who can receive the response to the creator of the event.
+The callback function follows the pattern found in [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver) and other observers. It is designed to limit the number of audience who can look at the response.
 
 ## Behaviors
 
-### Differences between `RespondableEvent` and `FetchEvent`?
+### Differences between `RespondableEvent` and `FetchEvent`
 
 - `RespondableEvent` extends from `Event`, where `FetchEvent` extends from `ExtendableEvent` and `Event`
 - `request` property is optional in `RespondableEvent` where it is required in `FetchEvent`
