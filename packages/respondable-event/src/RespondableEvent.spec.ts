@@ -126,6 +126,18 @@ describe('when respondWith() is not called', () => {
       test('once', () => expect(callback).toHaveBeenCalledTimes(1));
       test('with undefined', () => expect(callback).toHaveBeenNthCalledWith(1, undefined, event));
     });
+
+    describe('when checkResponse() is called again', () => {
+      let checkResponseAgainReturnValue: boolean;
+
+      beforeEach(() => {
+        checkResponseAgainReturnValue = event.checkResponse();
+      });
+
+      it('should return true', () => expect(checkResponseAgainReturnValue).toBe(true));
+
+      test('callback should be called once', () => expect(callback).toHaveBeenCalledTimes(1));
+    });
   });
 });
 
