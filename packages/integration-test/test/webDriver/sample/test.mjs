@@ -19,5 +19,7 @@ it('should work', async () => {
     document.readyState === 'loading' ? window.addEventListener('DOMContentLoaded', done) : done()
   );
 
+  await driver.wait(() => driver.executeScript(() => !!document.querySelector('h1')?.textContent));
+
   await expect(driver.executeScript(() => document.querySelector('h1')?.textContent)).resolves.toEqual('Hello, World!');
 });
