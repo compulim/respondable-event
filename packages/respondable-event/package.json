@@ -1,0 +1,70 @@
+{
+  "name": "respondable-event",
+  "version": "0.0.0-0",
+  "description": "Enables event listeners to send zero-or-one response back to the dispatching EventTarget.",
+  "files": [
+    "./dist/"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/respondable-event.d.mts",
+        "default": "./dist/respondable-event.mjs"
+      },
+      "require": {
+        "types": "./dist/respondable-event.d.ts",
+        "default": "./dist/respondable-event.js"
+      }
+    }
+  },
+  "main": "./dist/respondable-event.js",
+  "typings": "./dist/respondable-event.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "bump": "npm run bump:prod && npm run bump:dev",
+    "bump:dev": "PACKAGES_TO_BUMP=$(cat package.json | jq -r '(.pinDependencies // {}) as $P | (.localPeerDependencies // {}) as $L | (.devDependencies // {}) | to_entries | map(select(.key as $K | $L | has($K) | not)) | map(.key + \"@\" + ($P[.key] // [\"latest\"])[0]) | join(\" \")') && [ ! -z \"$PACKAGES_TO_BUMP\" ] && npm install $PACKAGES_TO_BUMP || true",
+    "bump:prod": "PACKAGES_TO_BUMP=$(cat package.json | jq -r '(.pinDependencies // {}) as $P | (.localPeerDependencies // {}) as $L | (.dependencies // {}) | to_entries | map(select(.key as $K | $L | has($K) | not)) | map(.key + \"@\" + ($P[.key] // [\"latest\"])[0]) | join(\" \")') && [ ! -z \"$PACKAGES_TO_BUMP\" ] && npm install $PACKAGES_TO_BUMP || true",
+    "precommit": "npm run precommit:eslint && npm run precommit:publint && npm run precommit:typescript:production && npm run precommit:typescript:test",
+    "precommit:eslint": "ESLINT_USE_FLAT_CONFIG=false eslint ./src/",
+    "precommit:publint": "publint",
+    "precommit:typescript:production": "tsc --noEmit --project ./src/tsconfig.precommit.production.json",
+    "precommit:typescript:test": "tsc --noEmit --project ./src/tsconfig.precommit.test.json",
+    "prepack": "cp ../../CHANGELOG.md . && cp ../../LICENSE . && cp ../../README.md .",
+    "start": "npm run build -- --onSuccess \"touch ../pages/package.json\" --watch",
+    "switch": "cat package.json | jq --arg SWITCH_NAME $SWITCH_NAME -r '(.[\"switch:\" + $SWITCH_NAME] // {}) as $TEMPLATE | .devDependencies += ($TEMPLATE.devDependencies // {}) | .dependencies += ($TEMPLATE.dependencies // {})' | tee ./package.json.tmp && mv ./package.json.tmp ./package.json",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compulim/respondable-event.git"
+  },
+  "keywords": [
+    "event-target",
+    "extendable-event",
+    "fetch-event",
+    "respond-with"
+  ],
+  "author": "William Wong (https://github.com/compulim)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/compulim/respondable-event/issues"
+  },
+  "homepage": "https://github.com/compulim/respondable-event#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@testing-library/react": "^16.0.1",
+    "@tsconfig/recommended": "^1.0.7",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/jest": "^29.5.13",
+    "babel-jest": "^29.7.0",
+    "esbuild": "^0.24.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "publint": "^0.2.11",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.3"
+  }
+}

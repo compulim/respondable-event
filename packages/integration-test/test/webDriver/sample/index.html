@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script type="module">
+      import { RespondableEvent } from '../../modules/respondable-event.mjs';
+
+      window.addEventListener('authenticate', event => event.respondWith('Hello, World!'));
+
+      customElements.define(
+        'sign-in',
+        class extends HTMLElement {
+          connectedCallback() {
+            const event = new RespondableEvent(
+              'authenticate',
+              returnValue => {
+                const header = document.createElement('h1');
+
+                header.textContent = returnValue;
+
+                document.body.appendChild(header);
+              },
+              { bubbles: true }
+            );
+
+            this.dispatchEvent(event);
+          }
+        }
+      );
+    </script>
+    <sign-in></sign-in>
+  </body>
+</html>
