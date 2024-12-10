@@ -13,7 +13,7 @@ describe('User story on window.addEventListener', () => {
   afterEach(() => driver?.quit());
 
   it('should work', async () => {
-    await driver.get('http://web/test/sample/');
+    await driver.get('http://web/sample/');
 
     // @ts-expect-error
     await driver.executeAsyncScript(done =>
