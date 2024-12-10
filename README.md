@@ -10,7 +10,7 @@ This is useful in scenarios where custom elements need to communicate with the h
 
 ## How to use
 
-The code snippet below send an `"authenticate"` event to the hosting page.
+The code snippet below sends an `"authenticate"` event to the hosting page.
 
 ```ts
 const event = new RespondableEvent(
@@ -34,7 +34,7 @@ event.checkResponse();
 const token = await authenticate.promise;
 ```
 
-In the hosting page, the following code snippet respond with a token.
+In the hosting page, the following code snippet responds with a token.
 
 ```ts
 window.addEventListener('authenticate', event => {
