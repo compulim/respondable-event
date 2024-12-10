@@ -68,7 +68,7 @@ The callback function follows the pattern found in [`MutationObserver`](https://
 
 - `RespondableEvent` extends from [`Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event), where [`FetchEvent`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent) extends from [`ExtendableEvent`](https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent)
 - `request` property is optional in `RespondableEvent` where it is required in [`FetchEvent`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/request)
-- [`checkResponse()` function](#new-checkresponse-function) is new in `RespondableEvent`
+- [`checkResponse()`](#new-checkresponse-function) function is new in `RespondableEvent`
 
 ## Contributions
 
