@@ -30,8 +30,6 @@ element.dispatchEvent(event);
 // If `respondWith()` is not called, `checkResponse()`
 // function will callback with `undefined`.
 event.checkResponse();
-
-const token = await authenticate.promise;
 ```
 
 In the hosting page, the following code snippet responds with a token.
@@ -53,6 +51,7 @@ To reduce code complexity, the `checkResponse()` function guarantees the `callba
 
 - If `respondWith()` was called, `checkResponse()` will return `true`.
 - If `respondWith()` was never called, `checkResponse()` will call the `callback` function with `undefined`, and return `false`.
+   - Subsequent calls to `checkResponse()` will return `true`.
 
 It is recommended to put `checkResponse()` immediately after `dispatchEvent()`.
 
