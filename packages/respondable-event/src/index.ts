@@ -1,3 +1,3 @@
-import RespondableEvent from "./RespondableEvent";
+import RespondableEvent from './RespondableEvent.ts';
 
 export { RespondableEvent };
