@@ -6,7 +6,7 @@ Enables event listeners to send response back to the event dispatcher.
 
 Inspired by the [`FetchEvent`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent) which is available to [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) only, the `RespondableEvent` allows event listeners to send a response back to the dispatching [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 
-This is useful in scenarios where custom elements need to communicate with the host asynchronously or infrequently. For persisted messaging, use `RespondableEvent` to set up [`Channel Messaging`](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API/Using_channel_messaging) instead.
+This is useful in scenarios where custom elements need to communicate with the host asynchronously or infrequently. For persisted messaging, use `RespondableEvent` to set up [Channel Messaging](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API/Using_channel_messaging) instead.
 
 ## How to use
 
