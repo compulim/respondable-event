@@ -50,6 +50,20 @@
   "localPeerDependencies": {
     "respondable-event": "^0.0.0-0"
   },
+  "pinDependencies": {
+    "@types/react": [
+      "18"
+    ],
+    "@types/react-dom": [
+      "18"
+    ],
+    "react": [
+      "18"
+    ],
+    "react-dom": [
+      "18"
+    ]
+  },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.5",
     "@types/react": "^18.3.11",
