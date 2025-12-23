@@ -3,6 +3,7 @@
   "version": "0.0.0-0",
   "description": "Enables event listeners to send zero-or-one response back to the event dispatcher.",
   "files": [
+    "./*.js",
     "./dist/"
   ],
   "exports": {
@@ -54,6 +55,8 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
+    "@happy-dom/global-registrator": "^20.0.11",
+    "@happy-dom/jest-environment": "^20.0.11",
     "@testing-library/react": "^16.0.1",
     "@tsconfig/recommended": "^1.0.7",
     "@tsconfig/strictest": "^2.0.5",
