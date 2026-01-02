@@ -57,6 +57,7 @@
   "homepage": "https://github.com/compulim/respondable-event#readme",
   "pinDependencies": {},
   "devDependencies": {
+    "@compulim/test-harness": "0.0.0-0",
     "@tsconfig/recommended": "^1.0.13",
     "@tsconfig/strictest": "^2.0.8",
     "nodemon": "^3.1.11",
