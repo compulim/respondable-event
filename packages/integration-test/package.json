@@ -1,5 +1,5 @@
 {
-  "name": "respondable-event-integration-test",
+  "name": "@compulim/integration-test",
   "version": "0.0.0-0",
   "description": "",
   "private": true,
@@ -30,12 +30,10 @@
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.8",
     "@types/expect": "^24.3.2",
-    "@types/mocha": "^10.0.10",
     "@types/node": "^25.0.3",
     "@types/selenium-webdriver": "^4.35.4",
     "core-js-pure": "^3.47.0",
     "expect": "^30.2.0",
-    "mocha": "^11.7.5",
     "on-error-resume-next": "^2.0.3",
     "resolve-cwd": "^3.0.0",
     "selenium-webdriver": "^4.39.0",
@@ -52,6 +50,5 @@
     "webDriver/**/*"
   ],
   "exports": {},
-  "pinDependencies": {},
-  "peerDependencies": {}
+  "pinDependencies": {}
 }

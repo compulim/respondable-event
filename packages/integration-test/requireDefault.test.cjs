@@ -1,8 +1,7 @@
-/// <reference types="mocha" />
+const { describe, it } = require('node:test');
+const { RespondableEvent } = require('respondable-event');
 
-import { RespondableEvent } from 'respondable-event';
-
-describe('ES Modules', () => {
+describe('CommonJS', () => {
   it('should work', () => {
     let called = [];
     const callback = (
@@ -13,7 +12,9 @@ describe('ES Modules', () => {
     const event = new RespondableEvent('authenticate', callback);
     const target = new EventTarget();
 
-    target.addEventListener('authenticate', (/** @type {any} */ event) => event.respondWith('Hello, World!'));
+    target.addEventListener('authenticate', (/** @type {any} */ event) => {
+      event.respondWith('Hello, World!');
+    });
 
     target.dispatchEvent(event);
   });

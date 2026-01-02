@@ -55,19 +55,10 @@
     "url": "https://github.com/compulim/respondable-event/issues"
   },
   "homepage": "https://github.com/compulim/respondable-event#readme",
+  "pinDependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
-    "@babel/preset-typescript": "^7.28.5",
-    "@happy-dom/global-registrator": "^20.0.11",
-    "@happy-dom/jest-environment": "^20.0.11",
-    "@testing-library/react": "^16.3.1",
     "@tsconfig/recommended": "^1.0.13",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/jest": "^30.0.0",
-    "babel-jest": "^30.2.0",
-    "esbuild": "^0.27.2",
-    "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "prettier": "^3.7.4",
     "publint": "^0.3.16",
@@ -76,8 +67,5 @@
   },
   "localPeerDependencies": {
     "@compulim/test-harness": "0.0.0-0"
-  },
-  "dependencies": {},
-  "pinDependencies": {},
-  "peerDependencies": {}
+  }
 }
